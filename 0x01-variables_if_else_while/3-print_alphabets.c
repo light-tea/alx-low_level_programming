@@ -11,10 +11,10 @@ int main(void)
 	char tea;
 
 	for (tea = 'a'; tea <= 'z'; tea++)
-		putchar(tea);
+	putchar(tea);
 	for (tea = 'A'; tea <= 'Z'; tea++)
-		putchar(tea);
-		putchar('\n');
+	putchar(tea);
+	putchar('\n');
 
 	return (0);
 }
