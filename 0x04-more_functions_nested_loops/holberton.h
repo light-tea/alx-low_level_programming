@@ -5,6 +5,6 @@
 int _isupper(int c);
 
 /*prototype for isgit*/
-int _isdigit(int c);
+int _isdigit(int x);
 
 #endif
