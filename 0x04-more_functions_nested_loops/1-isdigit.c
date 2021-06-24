@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * main - function that checks for a digit 
@@ -9,7 +8,7 @@
 
 int_isdigit(int c){
 
-	if ( c >= '0' && c>= '9' )
+	if ( c >= '0' && c<= '9' )
 {
 	return (1);
 }
