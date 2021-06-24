@@ -6,9 +6,9 @@
  * return: Always 0
  */
 
-int_isdigit(int c){
+int_isdigit(int x){
 
-	if ( c >= '0' && c<= '9' )
+	if ( x >= 48 && x <= 57)
 {
 	return (1);
 }
