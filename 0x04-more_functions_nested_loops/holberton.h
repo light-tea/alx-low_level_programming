@@ -4,7 +4,7 @@
 /*prototype of isupper*/
 int _isupper(int c);
 
-/*prototype for isgit*/
-int _isdigit(int x);
+/*prototype for is digit*/
+int _isdigit(int c);
 
 #endif
