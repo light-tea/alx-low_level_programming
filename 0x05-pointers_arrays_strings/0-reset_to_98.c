@@ -9,11 +9,5 @@
 
 void reset_to_98(int *n){
 	
-	int *p;
-
-	n = 98;
-	p = &n;
-
-	printf("The value of pointer is : %d", n);
-	return (0);
+	*n = 98;
 }
