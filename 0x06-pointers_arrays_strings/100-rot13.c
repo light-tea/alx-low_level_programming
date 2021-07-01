@@ -5,7 +5,7 @@
  * @str: input string
  *
  * Description: encodes a string using rot13
- * Return: always (0)
+ * Return: always (c)
  */
 
 char *rot13(char *str)
