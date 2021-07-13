@@ -26,11 +26,11 @@ void print_grid(int **grid, int width, int height)
         }
         printf("\n");
         h++;
-    }
+    }   
 }
 
 /**
- * main - check the code for Holberton School students.
+ * main - check the code for ALX School students.
  *
  * Return: Always 0.
  */
