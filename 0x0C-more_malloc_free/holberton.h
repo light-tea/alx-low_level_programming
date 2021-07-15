@@ -1,6 +1,3 @@
-#ifdef holberton_h
-#define holberton_h
-
 void *malloc_checked(unsigned int b);
 int _putchar(char c);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
@@ -12,4 +9,4 @@ int _strlen(char *s);
 void multiply(char *f, char *s);
 char *_memset(char *s, char b, unsigned int n);
 
-#endif
+
