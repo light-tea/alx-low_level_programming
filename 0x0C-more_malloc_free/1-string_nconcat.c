@@ -10,6 +10,7 @@
  * Return: pointer to newly allocated s1, followed by the first n bytes of s2
  * NULL if function fails
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *concat;
