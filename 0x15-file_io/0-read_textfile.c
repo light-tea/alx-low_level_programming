@@ -1,31 +1,27 @@
-#include "main.h"
 #include "holberton.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include "main.h"
+
 /**
- * read_textfile - reads text file and prints it to
- * POSIX STDOU
- * @filename: name of file
- * @letters: number of letters
- * Return: number of letters
- * 0: if filename is null,not opened/read/write
+ * read_textfile - reads a textfile and prints to the POSIX standard output
+ * @filename: file to read and print
+ * @letters: number of letters to print
+ * Return: actual number of letter
  */
-size_t read_textfile(const char *filename, size_t letters)
+
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file = open(filename, O_RDONLY);
-	char *buf = malloc(sizeof(char) * letters);
-	ssize_t rd, cnt;
-
-	if (filename == NULL || file == -1)
-		return (0);
-
-	rd = read(file, buf, letters);
-	cnt = write(STDOUT_FILENO, buf, rd);
-	if (rd == -1 || cnt == -1 || rd != cnt)
-		return (0);
-	close(file);
-	return (cnt);
+int dest, size;
+char *buffer;
+if (filename == NULL)
+return (0);
+buffer = malloc(sizeof(char) * letters);
+if (buffer == NULL)
+return (0);
+dest = open(filename, O_RDONLY);
+size = write(STDOUT_FILENO, buffer, read(dest, buffer, letters));
+if (dest == -1 || size == -1)
+return (0);
+close(dest);
+free(buffer);
+return (size);
 }
