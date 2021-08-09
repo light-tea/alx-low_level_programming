@@ -1,43 +1,31 @@
-#include <stdio.h>
+#include "main.h"
 #include "holberton.h"
+#include <unistd.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 /**
- * read_textfile - Reads a text file and prints it to the POSIX
- * standard output.
- * @filename: file.
- * @letters: Number of letters it should read and print.
- * Return: Actual number of letters it could read and print.
+ * read_textfile - reads text file and prints it to
+ * POSIX STDOU
+ * @filename: name of file
+ * @letters: number of letters
+ * Return: number of letters
+ * 0: if filename is null,not opened/read/write
  */
-ssize_t read_textfile(const char *filename, size_t letters)
+size_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, res_read, res_write;
-	char *buf;
+	int file = open(filename, O_RDONLY);
+	char *buf = malloc(sizeof(char) * letters);
+	ssize_t rd, cnt;
 
-	if (filename == NULL)
+	if (filename == NULL || file == -1)
 		return (0);
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
+
+	rd = read(file, buf, letters);
+	cnt = write(STDOUT_FILENO, buf, rd);
+	if (rd == -1 || cnt == -1 || rd != cnt)
 		return (0);
-	buf = malloc(sizeof(char) * letters);
-	if (buf == NULL)
-		return (0);
-	res_read = read(fd, buf, letters);
-	if (res_read == -1)
-	{
-		free(buf);
-		return (0);
-	}
-	res_write = write(STDOUT_FILENO, buf, res_read);
-	if (res_write == -1 || res_read != res_write)
-	{
-		free(buf);
-		return (0);
-	}
-	free(buf);
-	close(fd);
-	return (res_write);
+	close(file);
+	return (cnt);
 }
